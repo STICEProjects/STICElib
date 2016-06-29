@@ -1,4 +1,4 @@
-function out = EscapeSequence(key)
+function out = escape_sequence(key)
 
 out = 0;
 beginTime = getSecs;
