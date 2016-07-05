@@ -21,7 +21,8 @@ Display.center = zeros(2);
 
 Screen('Textsize', Display.window, 60);
 Screen('BlendFunction', Display.window, 'GL_SRC_ALPHA', 'GL_ONE_MINUS_SRC_ALPHA');
-sca
+Display.vbl = Screen('Flip', Display.window);
+
 
 
 

@@ -1,7 +1,7 @@
 function out = escape_sequence(key)
 
 out = 0;
-beginTime = getSecs;
+beginTime = GetSecs;
 
 if isequal(upper(key), 'Q')
     [keyIsDown,secs,keyCode] = KbCheck;
