@@ -1,23 +1,25 @@
 function joystick_calibration()
+   
+    Display = screen_init('debug');
     
-    Display = screen_init();
-    Display.waitframes = 1;
-    defaultjoy.xmod = 1;
-    defaultjoy.ymod = 1;
+    Defaultjoy.center = [32767, 32767];
+    Defaultjoy.xmod = .001;
+    Defaultjoy.ymod = .001;
     
-    Cursor.rect = [0 0 20 20];
-    Cursor.color = [1 0 0];
+    Cursor.color = [255 255 255];
     
     
     Priority(Display.priority);
     
+    Screen('Flip', Display.window);
     while 1
-        get_resp('space');
-        Joy = get_joystick_value(defaultjoy);
         
-        Cursor.position = CenterRectonPointd(Cursor.rect, joy.x, joy.y);
-        Screen('Fillrect', Display.window, Cursor.color, Cursor.position);
-        Display.vbl  = Screen('Flip', Display.window, Display.vbl + (Display.waitframes - 0.5) * Display.interval);
+        Joy = get_joystick_value(Defaultjoy);
+        
+        Cursor.position = [Joy.x + Cursor.position(1), Joy.y + Cursor.position(2)];
+        Screen('DrawDots', Display.window, Cursor.position, 20, Cursor.color, [], 2);
+        Screen('Flip', Display.window);
+        %Display.vbl  = Screen('Flip', Display.window, Display.vbl + (Display.waitframes - 0.5) * Display.interval);
         
     end
 

@@ -1,9 +1,12 @@
-function [Display] = screen_init()
+function [Display] = screen_init(varagin)
 sca
 close all
-clearvars
+clear Screen
 
 PsychDefaultSetup(2);
+if exist('varagin', 'var')
+    PsychDebugWindowConfiguration(0,.3)
+end
 
 screenids = Screen('Screens');
 Display.id = max(screenids);
@@ -15,6 +18,8 @@ Screen('Flip', Display.window);
 Display.interval = Screen('GetFlipInterval', Display.window);
 
 Display.priority = MaxPriority(Display.window);
+
+Display.waitframes = 1;
 
 Display.center = zeros(2);
 [Display.center(1), Display.center(2)] = RectCenter(Display.rect);
