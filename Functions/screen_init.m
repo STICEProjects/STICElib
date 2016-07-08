@@ -14,6 +14,8 @@ Display.id = max(screenids);
 
 [Display.window, Display.rect] = Screen('OpenWindow', Display.id, 0, [], 32, 2);
 
+HideCursor();
+
 Screen('Flip', Display.window);
 Display.interval = Screen('GetFlipInterval', Display.window);
 
