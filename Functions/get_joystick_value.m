@@ -1,6 +1,9 @@
 function [Ret] = get_joystick_value(Joy)
-    [x, y, ~, buttons] = WinJoystickMex(0);
-    
+    if Joy.mac == 1
+        %GAMEPAD STUFF
+    else
+        [x, y, ~, buttons] = WinJoystickMex(0);
+    end
     Ret.x = (x - Joy.center(1));
     Ret.y = (y - Joy.center(2));
     
@@ -19,5 +22,5 @@ function [Ret] = get_joystick_value(Joy)
     
     Ret.button1 = buttons(1);
     Ret.button2 = buttons(2);
-    
+    Ret.trigger = buttons(3);
 end
