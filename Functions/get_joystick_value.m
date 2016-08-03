@@ -1,6 +1,10 @@
-function [Ret] = get_joystick_value(Joy)
+function Ret = get_joystick_value(Joy)
     if Joy.mac == 1
-        %GAMEPAD STUFF
+        x = Gamepad('Getaxis', 1, 1);
+        y = Gamepad('Getaxis', 1, 2);
+        buttons(1) = Gamepad('GetButton', 1,1);
+        buttons(2) = Gamepad('GetButton', 1,3);
+        buttons(3) = Gamepad('GetButton', 1,2);
     else
         [x, y, ~, buttons] = WinJoystickMex(0);
     end
