@@ -25,7 +25,7 @@ function [rounded_rating, rt] = display_stimulus_choice(Display, Joyconfig, wRec
         rating = minmaxcheck(1, 9, (rating + Input.x));
         left_color = [255 255 255];
         right_color = [255 255 255];
-        if rating < 4D
+        if rating < 4
             left_color = [255 255 255]; 
         end
         if rating > 6
