@@ -4,7 +4,7 @@ function draw_ratings(Display, rating)
 
     colors=repmat([255 255 255]',1,9);
 
-    colors(:,choice)=[0 255 0]';
+    colors(:,round(rating))=[0 255 0]';
     
     Screen('TextFont', Display.window, 'Arial');
     Screen('TextStyle', Display.window, 1);

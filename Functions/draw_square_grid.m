@@ -4,10 +4,10 @@ function [rects, mids] = draw_square_grid(Display, number)
     %Size of image will depend on screen size. First, an area approximately 80%
     %of screen is determined. Then, images are 1/4th the side of that square
     %(minus the 3 x the gap between images.
-    
-    xlen = Display.rect(3)*.8;           %Make area covering about 90% of vertical dimension of screen.
+    rect = Display.rect;
+    xlen = rect(3)*.8;           %Make area covering about 90% of vertical dimension of screen.
     gap = 10;                       %Gap size between each rect
-    square_side = fix((xlen - (num_rects-1)*gap)/number); %Size of rect depends on size of screen.
+    square_side = fix((xlen - (number-1)*gap)/number); %Size of rect depends on size of screen.
 
     squart_x = Display.center(1)-(xlen/2);
     squart_y = Display.rect(4)*.8;         %Rects start @~80% down screen.
