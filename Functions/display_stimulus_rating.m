@@ -1,10 +1,12 @@
 function [rounded_rating, rt] = display_stimulus_rating(Display, Joyconfig, text1, text2, duration)
     rating = 5;
+    rounded_rating = 5;
     rt = 0;
     
     draw_ratings(Display, rating);
+    
     DrawFormattedText(Display.window,text1,'center','center',[255 255 255]);
-    DrawFormattedText(Display.window,text2,'center',(Display.rect(4)*.75),[255 255 255]);
+    DrawFormattedText(Display.window,text2,'center',(Display.rect(4)*.55),[255 255 255]);
     rating_onset  = Screen('Flip',Display.window);
     
     
@@ -18,12 +20,16 @@ function [rounded_rating, rt] = display_stimulus_rating(Display, Joyconfig, text
             break
         end
         rating = minmaxcheck(1, 9, (rating + Input.x));
-        draw_ratings(Display, rating);
+        if rounded_rating ~= round(rating);
+            pause(.2);
+        end
+        draw_ratings(Display, round(rating));
         DrawFormattedText(Display.window,text1,'center','center',[255 255 255]);
-        DrawFormattedText(Display.window,text2,'center',(Display.rect(4)*.75),[255 255 255]);
+        DrawFormattedText(Display.window,text2,'center',(Display.rect(4)*.55),[255 255 255]);
         Screen('Flip', Display.window);
+        rounded_rating = round(rating);
      end
-    rounded_rating = round(rating);
+    
 end
 
     

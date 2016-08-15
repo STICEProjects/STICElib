@@ -1,8 +1,8 @@
 function [rounded_rating, rt] = display_stimulus_choice(Display, Joyconfig, text1, left_choice, right_choice, duration)
     
     DrawFormattedText(Display.window,text1,'center','center',[255 255 255]);
-    DrawFormattedText(Display.window,left_choice,Display.rect(3)*0.10,(Display.rect(4)*.75),[255 255 255]);
-    DrawFormattedText(Display.window,right_choice,Display.rect(3)*0.60,(Display.rect(4)*.75),[255 255 255]);
+    DrawFormattedText(Display.window,left_choice,Display.rect(3)*0.33,(Display.rect(4)*.75),[255 255 255]);
+    DrawFormattedText(Display.window,right_choice,Display.rect(3)*0.66,(Display.rect(4)*.75),[255 255 255]);
     
     rating = 5;
     rt = 0;
@@ -24,13 +24,13 @@ function [rounded_rating, rt] = display_stimulus_choice(Display, Joyconfig, text
             break
         end
         rating = rating + Input.x;
-        rating = minmaxcheck(1, 9, rating);
+        rating = minmaxcheck(4, 6, rating);
         left_color = [255 255 255];
         right_color = [255 255 255];
-        if rating < 4
+        if rating == 4
             left_color = [0 255 0];
         end
-        if rating > 6
+        if rating == 6
             right_color = [0 255 0];
         end
         DrawFormattedText(Display.window,left_choice,Display.rect(3)*0.10,(Display.rect(4)*.75),left_color);
