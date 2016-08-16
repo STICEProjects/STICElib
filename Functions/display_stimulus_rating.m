@@ -6,7 +6,7 @@ function [rounded_rating, rt] = display_stimulus_rating(Display, Joyconfig, text
     draw_ratings(Display, rating);
     
     DrawFormattedText(Display.window,text1,'center','center',[255 255 255]);
-    DrawFormattedText(Display.window,text2,'center',(Display.rect(4)*.55),[255 255 255]);
+    DrawFormattedText(Display.window,text2,'center',(Display.rect(4)*.65),[255 255 255]);
     rating_onset  = Screen('Flip',Display.window);
     
     
@@ -25,7 +25,7 @@ function [rounded_rating, rt] = display_stimulus_rating(Display, Joyconfig, text
         end
         draw_ratings(Display, round(rating));
         DrawFormattedText(Display.window,text1,'center','center',[255 255 255]);
-        DrawFormattedText(Display.window,text2,'center',(Display.rect(4)*.55),[255 255 255]);
+        DrawFormattedText(Display.window,text2,'center',(Display.rect(4)*.65),[255 255 255]);
         Screen('Flip', Display.window);
         rounded_rating = round(rating);
      end
