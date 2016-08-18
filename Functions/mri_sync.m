@@ -3,8 +3,8 @@ function time = mri_sync(Display)
     Screen('Flip', Display.window);
     
     while 1
-        key = KbName();
-        if isequal(key, '5%')
+        key = GetChar();
+        if isequal(key, '5')
             break
         end
     end

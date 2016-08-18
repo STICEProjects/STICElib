@@ -1,7 +1,7 @@
 function varargout = get_resp(varargin)
 
 %function varargout = getResp(varargin)
-%	If no variables are supplied as input, then no variables are supplied as output.
+%	If no variables are supplied as inpubbt, then no variables are supplied as output.
 %		The function simply returns [RT].
 %	If characters are supplied as input then the output is [Response, RT]
 %		E.g.  For GetResp('z', 'x', 'n'), Response is
