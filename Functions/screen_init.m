@@ -7,7 +7,7 @@ PsychDefaultSetup(2);
 Screen('Preference', 'SkipSyncTests', 1)
 
 if exist('varagin', 'var')
-    PsychDebugWindowConfiguration(0,.3)
+    PsychDebugWindowConfiguration(0, .95)
 else
     HideCursor();
 end
